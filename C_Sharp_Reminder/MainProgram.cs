@@ -1,155 +1,146 @@
 ﻿namespace C_Sharp_Reminder;
-using System;
-using System.Collections.Generic;
+
 // Using "internal" with vars, methods, classes - doesn't give permission to use them in other programs, projects, assemblies.
 internal class MainProgram
-{
+{ 
     private static void Main() //Main function
     {
-        CheckOnOverFlow();
-        Concatenation();
-        ConsoleView();
-        StringView();
         CreatingArray();
-        Parsing();
-        CreatingList();
+        CreatingDoubleArray();
         CreatingVector();
         CreatingQueue();
         CreatingStack();
+        CreatingList();
         CreatingDictionary();
+        ConsoleView();
+        CheckOnOverFlow();
+        Concatenation();
+        Parsing();
+        StringView();
     }
-
-    private static void CreatingDictionary()
-    {
-        var dictionary = new Dictionary<int, string>();
-        dictionary.Add(1,"hELLO");
-        dictionary.Add(2,"hELLO");
-        dictionary.Add(3,"hELLO");
-
-        dictionary = new Dictionary<int, string>()
-        {
-            { 1, "john" },
-            { 2, "john" },
-            { 3, "john" }
-        };
-
-        string name = dictionary[2];
-        Console.WriteLine(name);
-    }
-
-    private static void CreatingStack()
-    {
-        
-    }
-
-    private static void CreatingQueue()
-    {
-         
-    }
-
-    private static void CreatingVector() // Vector in c++ is a list in c#
-    {
-        var a = new List<int>() { 2, 5, 6, 7, 8, 9 };
-        a.Add(3);
-        foreach (var vas in a)
-        {
-            Console.Write(vas+" ");
-        }
-        Console.WriteLine();
-        
-        a.Sort();
-        
-        foreach (var vas in a)
-        {
-            Console.Write(vas+" ");
-        }
-    }
-
-    private static void CreatingList()  // 
-    {
-        //Это позволит вам добавить узел в список в нужное место, а также обеспечит доступ к методам для работы с узлами (например, Next, Previous, Value).
-        LinkedList<int> a = new LinkedList<int>();
-        a.AddLast(2);
-        a.AddLast(2);
-        a.AddLast(2);
-        a.AddLast(2);
-        a.AddLast(2);
-        a.AddLast(2);
-        a.AddLast(2);
-        a.AddLast(2);
-
-        if (a.First != null)
-        {
-            LinkedListNode<int> firstNode = a.First;
-            if (firstNode.Next != null) firstNode.Next.Value = 3;
-        } //Работа с нодой
-
-
-        foreach (var vas in a)
-        {
-            Console.Write(vas+" ");
-        }
-        Console.WriteLine();
-        
-        a.RemoveFirst();
-        
-        foreach (var vas in a)
-        {
-            Console.Write(vas+" ");
-        }
-        Console.WriteLine();
-    }
-
-    private static void Parsing()
-    {
-        double num = 10.5;
-        int roundedNum = (int)Math.Round(num, MidpointRounding.ToZero);
-        Console.WriteLine("\n"+roundedNum);
-        roundedNum = (int)Math.Round(num, MidpointRounding.AwayFromZero);
-        Console.WriteLine(roundedNum);
-    }
-
+    
     private static void CreatingArray()
     {
-        int[] arr = new int[5];
-        int[] arr1 = new int[5] {2,4,6,7,8};
-        //int[] arr2 = {2,4,6,2,5};
-        foreach (var vas in arr1)
-        {
-            Console.Write(vas+" ");
-        }
-        Console.WriteLine();
-
-        int index = Array.BinarySearch(arr1, 4);
-        Console.WriteLine(arr1[index] + " Is our num");
+        Console.WriteLine("Array");
         
-        Array.Copy(arr1,arr,arr1.Length);
-        foreach (var vas in arr)
+        int[] array = new int[] {2,4,6,8,10};
+        int[] array1 = new int[5];
+        
+        Array.Copy(array,array1,array1.Length);
+
+        for (int i = 0; i < 5; i++)
+            Console.Write(array[i] + " ");
+        
+        Console.WriteLine();
+        
+        for (int i = 0; i < 5; i++)
+            Console.Write(array1[i] + " ");
+    
+        Console.WriteLine($"\nThe index of the number your search is: {Array.BinarySearch(array,2)} and its number is {array[Array.BinarySearch(array,2)]}");
+    }
+    
+    private static void CreatingDoubleArray()
+    {
+        Console.WriteLine("\nDouble Array");
+        
+        int[,]n = new int[,]{{1,3,5},{4,6,8},{2,1,0}};
+        
+        for (int i = 0; i < n.GetLength(0); i++)
         {
-            Console.Write(vas+" ");
+            for (int j = 0; j < n.GetLength(1); j++)
+                Console.Write(n[i,j]+" ");
+            Console.WriteLine();
         }
     }
 
-    private static void StringView()
+    // Vector in c++ is a list in c#
+    private static void CreatingVector()
     {
-        var str = string.Concat("Alex ", "Pekel");
-        Console.WriteLine(str);
-        str = string.Join(" ","Alex", "Pekel", "Is A King");
-        Console.WriteLine(str);
-        str = str.Insert(0, "By the way, ");
-        Console.WriteLine(str);
-        str = str.Remove(10);
-        Console.WriteLine(str);
-        str = str.Replace('a', 'E');
-        Console.WriteLine(str);
-        string []strings = str.Split(';'); //Разделит на под массивы и вернет массивы
-        Console.WriteLine(strings[0]);
-        str = str.ToLower();
-        Console.WriteLine(str);
+        Console.WriteLine("\nVector");
+        
+        var vector = new List<int> { 1,5,3,7,5,8 };
+        
+        foreach (var a in vector)
+            Console.Write(a + " ");
+        
+        Console.WriteLine();
+        
+        vector.Sort();
+        
+        foreach (var a in vector)
+            Console.Write(a + " ");
+    }
+    
+    private static void CreatingQueue()
+    {
+        Console.WriteLine("\n\nQueue");
+        
+        Queue<int> queue = new Queue<int>(10);
+        queue.Enqueue(1);
+        queue.Enqueue(2);
+        queue.Enqueue(5);
+        queue.Enqueue(1);
+        queue.Enqueue(9);
+        
+        foreach (var a in queue)
+            Console.Write(a + " ");
+    }
+   
+    private static void CreatingStack()
+    {
+        Console.WriteLine("\n\nStack");
+        
+        Stack<int> orders = new Stack<int>();
+        orders.Push(2);
+        orders.Push(3);
+        orders.Push(5);
+        orders.Push(1);
+        orders.Push(7);
+        
+        foreach (var a in orders)
+            Console.Write(a + " ");
+    }
+    
+    private static void CreatingList() 
+    {
+       Console.WriteLine("\n\nList");
+       
+        var a = new LinkedList<int>();
+        a.AddLast(1);
+        a.AddLast(2);
+        a.AddLast(3);
+        a.AddLast(4);
+        a.AddLast(5);
+        
+        foreach (var obj in a)
+            Console.Write(obj + " ");
+
+        if (a.First!=null )
+            a.First.Value = 0;
+
+        Console.WriteLine();
+        
+        foreach (var obj in a)
+            Console.Write(obj + " ");
+    }
+        
+    private static void CreatingDictionary()
+    {
+        Console.WriteLine("\n\nDictionary");
+        var dictionary = new Dictionary<int, string>
+        {
+            { 1, "Alex" },
+            { 2, "Dima" },
+            { 3, "German" }
+        };
+        
+        string name = dictionary[2];
+        Console.WriteLine(name + " - the name you trying to find!");
     }
 
     private static void ConsoleView()
     {
+        Console.WriteLine("\n\nConsole");
         Console.ForegroundColor = ConsoleColor.White; //sets the color text
         Console.BackgroundColor = ConsoleColor.Black; //sets the color backGround
 
@@ -163,9 +154,10 @@ internal class MainProgram
         // var number = Console.Read();
         // Console.WriteLine($"You entered: {(char)number}, Its code is: {number}");
     }
-
+ 
     private static void CheckOnOverFlow()
     {
+        Console.WriteLine("\n\nCheckOnOverFlow");
         checked //проверка за выход за пределы
         {
             var number = uint.MaxValue;
@@ -175,10 +167,11 @@ internal class MainProgram
             Console.WriteLine(number);
         }
     }
-
+    
     private static void Concatenation()
     {
-        var name = "Alex";
+        Console.WriteLine("\n\nConcatination");
+        var name = " Alex";
         var surname = "Pekel";
         var fullName1 = name + " " + surname;
         var fullName2 = string.Concat(name, " ", surname);
@@ -187,11 +180,40 @@ internal class MainProgram
 
         var subString = fullName1.Substring(5);
 
-        Console.WriteLine(fullName1);
-        Console.WriteLine(fullName2);
-        Console.WriteLine(fullName3);
-        Console.WriteLine(fullName4);
+        Console.WriteLine(fullName1 + fullName2 + fullName3 + fullName4);
         Console.WriteLine(subString);
         Console.WriteLine($"{string.IsNullOrEmpty("Ak")} {string.IsNullOrWhiteSpace(null)}");
+    }
+    
+    private static void Parsing()
+    {
+        Console.WriteLine("\n\nRounding nums");
+        Console.WriteLine((int)Math.Round(10.5,MidpointRounding.ToZero) + " is rounded.");
+        Console.WriteLine((int)Math.Round(10.5,MidpointRounding.AwayFromZero) + " is rounded.");
+    }
+    
+    private static void StringView()
+    {
+        Console.WriteLine("\n\nString View");
+        var str = string.Concat("Alex ", "Pekel");
+        Console.WriteLine(str);
+        
+        str = string.Join(" ","Alex", "Pekel", "Is A King");
+        Console.WriteLine(str);
+        
+        str = str.Insert(0, "By the way, ");
+        Console.WriteLine(str);
+        
+        str = str.Remove(10);
+        Console.WriteLine(str);
+        
+        str = str.Replace('a', 'E');
+        Console.WriteLine(str);
+        
+        string []strings = str.Split(';'); //Разделит на под массивы и вернет массивы
+        Console.WriteLine(strings[0]);
+        
+        str = str.ToLower();
+        Console.WriteLine(str);
     }
 }
