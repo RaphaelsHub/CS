@@ -5,6 +5,8 @@ internal class MainProgram
 { 
     private static void Main() //Main function
     {
+        Weapon weapon = new Weapon();
+        weapon.num = 10;
         CreatingArray();
         CreatingDoubleArray();
         CreatingVector();
@@ -17,7 +19,54 @@ internal class MainProgram
         Concatenation();
         Parsing();
         StringView();
+        SendingArray(1,2,3,4,5);
+        OptionalParamet(1, true);
+        StructClass();
     }
+
+    private static void StructClass()
+    {
+        Console.WriteLine();
+        
+        PointVal a = new PointVal();
+        a.X = 10;
+        a.Y = 15;
+
+        PointRef b = new PointRef();
+        b.X = 11;
+        b.Y = 16;
+        
+        a.Print();
+        b.Print();
+        
+        PointVal aa = a;
+        PointRef bb = b;
+
+        a.X = 100;
+        a.Y = 150;
+        
+        b.X = 110;
+        b.Y = 160;
+        
+        a.Print();
+        b.Print();
+        aa.Print();
+        bb.Print();
+    }
+    
+    private static int OptionalParamet(int i, bool b=false) //optional parametrs use in the end of parametrs
+    {
+        return b ? i * i : i * i * i;
+    }
+    
+
+    private static void SendingArray(params int[] array)
+    {
+        Console.WriteLine("\n\n Sending Array");
+        foreach (var it in array)
+            Console.Write(it + " ");
+    }
+    
     
     private static void CreatingArray()
     {
@@ -216,4 +265,5 @@ internal class MainProgram
         str = str.ToLower();
         Console.WriteLine(str);
     }
+    
 }
