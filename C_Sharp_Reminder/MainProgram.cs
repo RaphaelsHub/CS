@@ -1,28 +1,96 @@
 ﻿namespace C_Sharp_Reminder;
 
 // Using "internal" with vars, methods, classes - doesn't give permission to use them in other programs, projects, assemblies.
-internal class MainProgram
+public class MainProgram
 { 
     private static void Main() //Main function
     {
-        Weapon weapon = new Weapon();
-        weapon.num = 10;
-        CreatingArray();
-        CreatingDoubleArray();
-        CreatingVector();
-        CreatingQueue();
-        CreatingStack();
-        CreatingList();
-        CreatingDictionary();
-        ConsoleView();
-        CheckOnOverFlow();
-        Concatenation();
-        Parsing();
-        StringView();
-        SendingArray(1,2,3,4,5);
-        OptionalParamet(1, true);
-        StructClass();
+        // CreatingArray();
+        // CreatingDoubleArray();
+        // CreatingVector();
+        // CreatingQueue();
+        // CreatingStack();
+        // CreatingList();
+        // CreatingDictionary();
+        // ConsoleView();
+        // CheckOnOverFlow();
+        // Concatenation();
+        // Parsing();
+        // StringView();
+        // SendingArray(1,2,3,4,5);
+        // OptionalParamet(1, true);
+        // StructClass();
+        //
+        // List<int> nubbers = new List<int>();
+        // AddNumbers(nubbers);
+        //
+        // int a = 10;
+        // int b = 5;
+        // Swap(ref a, ref b);
+        //
+        // PointVal? py = null;
+        //
+        // if (py.HasValue)
+        // {
+        //     PointVal px = py.Value;
+        // }
+        //
+        // BoxingAndUnboxing();
+        //
+        // Weapon Pistole = new Gun();
+        // Pistole.Print();
+    //     Car[] a = new Car[2]; //полиморфиз
+    //     a[0] = new Tracks(1, 4);
+    //     a[1] = new Tracks(1, 4);
+    //
+    //     foreach (var vas in a)
+    //     {
+    //         CallTrack(vas);
+    //         vas.Move();
+    //         vas.RotateRuli();
+    //         vas.RotateWheels();
+    //     }
+    // //
+    // IControl a = new Stack();
+    // a.Add();
+    // a.Add2();
+    List<int> list = new List<int>(){1,3,5,7,9};
+    IControl b = new Stack();
+    b.AddRange(list);
     }
+
+    private static void CallTrack(Car car)
+    {
+        car.Move();
+    }
+
+    private static void BoxingAndUnboxing()
+    {
+        object obj = 1;        // создали объект ссылоного типа, где 1 будет выделено на куче
+        ref object a = ref obj; //сылку присвоили сылочному типу
+        int y = (int)obj; // значение вытащили из указателя
+    }
+
+    private static void Swap(ref int i, ref int i1)
+    {
+        int tmp = i;
+        i = i1;
+        i1 = i;
+    }
+
+    private static void AddNumbers(List<int> numbers)
+    {
+        numbers.Add(1);
+        numbers.Add(2);
+        numbers.Add(3);
+        
+        
+        foreach (var a in numbers)
+        {
+            Console.WriteLine(a + " ");
+        }
+    }
+
 
     private static void StructClass()
     {

@@ -1,9 +1,9 @@
-﻿namespace ConsoleApp3;
-
-class Program
-{
-    static void Main(string[] args)
+﻿
+    class Program
     {
-        Console.WriteLine("Hello, World!");
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
     }
-}
+
