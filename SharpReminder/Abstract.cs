@@ -1,30 +1,26 @@
-using System.Formats.Asn1;
-
-namespace C_Sharp_Reminder;
+namespace SharpReminder;
 
 public abstract class Car
 {
-    private string numClass;
+    private string _numClass;
 
-    public Car(string a)
+    protected Car(string a)
     {
-        Console.WriteLine(a);
+        _numClass = a;
     }
     public abstract void Move();
     public abstract void RotateWheels();
-    public abstract void RotateRuli();
+    public abstract void RotateRul();
 }
 
 class Tracks:Car
 {
-    private readonly int speed;
-    private readonly int acceleration;
+    private readonly int _speed=10;
+    private readonly int _acceleration=50;
 
     public Tracks(int a, int b):base(nameof(Tracks))
     {
         Console.WriteLine("Track created");
-        speed = a;
-        acceleration = b;
     }
     public override void Move()
     {
@@ -36,7 +32,7 @@ class Tracks:Car
         Console.WriteLine("IsWorkingWheels");
     }
 
-    public override void RotateRuli()
+    public override void RotateRul()
     {
         Console.WriteLine("IsWorkingRuli");
     }

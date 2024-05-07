@@ -1,11 +1,18 @@
-namespace C_Sharp_Reminder;
+namespace SharpReminder;
+
+
 //почему интерфейс а не абстракт класс, если насследуемый класс должен реализовать более несколько классов, есть смысл испольщовать интервейс, дает пвозможност множ наследованию, а обыкновенный класс так не может.
 //абстракт  - i am //интерфейс - i can
 //интерфкйс нельзя расширять - не клиета, это мнгновенное требование все насследуемым класс, опредилить методы которые ты добавил, потому что без этого контракт не будет отрабатывать
-public interface IControl
+public interface IUse
+{
+    void Add(int a);
+}
+
+public interface IControl: IUse
 {
     //тут расмотрим методы расширения интерфейсов
-    void Add(int a);
+    new void Add(int a);
     void Add2();
 }
 
@@ -21,13 +28,7 @@ public static class Control
 }
 
 
-public interface IControl1
-{
-    void Add(int a);
-    void Add2();
-}
-
-public class Stack : IControl, IControl1
+public class Stack : IControl, IUse
 {
     public void Add(int a)
     {
