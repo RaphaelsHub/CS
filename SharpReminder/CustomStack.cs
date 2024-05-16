@@ -58,45 +58,49 @@ public class CustomStack<T> : IEnumerable<T>
         return _stack[Count - 1];
     }
 
+    // public IEnumerator<T> GetEnumerator() крутая версия даже итератор не надо реализовывать
+    // {
+    //     for (int i = 0; i < _stack.Length; i++)
+    //     {
+    //         yield return _stack[i];
+    //     }
+    // }
+
     public IEnumerator<T> GetEnumerator()
     {
-        for (int i = 0; i < _stack.Length; i++)
-        {
-            yield return _stack[i];
-
-        }
+        return new StackIenumerator<T>(_stack);
     }
-
 
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
     }
-
+    
+}
     public class StackIenumerator<T> : IEnumerator<T>
     {
-        private readonly T[] a;
-        private int position = -1; //итератор
+        private readonly T[] _a;
+        private int _position = -1; //итератор
 
-        public StackIenumerator(T[] Arr)
+        public StackIenumerator(T[] arr)
         {
-            this.a = Arr;
+            this._a = arr;
         }
 
         public bool MoveNext()
         {
-            position++;
-            return position < a.Length;
+            _position++;
+            return _position < _a.Length;
         }
 
         public void Reset()
         {
-            position = -1;
+            _position = -1;
         }
 
         public T Current
         {
-            get { return a[position]; }
+            get { return _a[_position]; }
         }
 
         object IEnumerator.Current
@@ -109,4 +113,3 @@ public class CustomStack<T> : IEnumerable<T>
 
         }
     }
-}

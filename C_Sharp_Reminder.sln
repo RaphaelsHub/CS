@@ -4,6 +4,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "Solution
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpReminder", "SharpReminder\SharpReminder.csproj", "{E5336FB8-F91A-4E9B-9432-D75D8656E62B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate", "Delegate\Delegate.csproj", "{E7E751C4-3509-4A22-AE87-53B28D944440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{E1751889-BD49-4031-8BAC-903BA34FE11E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +18,14 @@ Global
 		{E5336FB8-F91A-4E9B-9432-D75D8656E62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5336FB8-F91A-4E9B-9432-D75D8656E62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5336FB8-F91A-4E9B-9432-D75D8656E62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E751C4-3509-4A22-AE87-53B28D944440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E751C4-3509-4A22-AE87-53B28D944440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E751C4-3509-4A22-AE87-53B28D944440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E751C4-3509-4A22-AE87-53B28D944440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1751889-BD49-4031-8BAC-903BA34FE11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1751889-BD49-4031-8BAC-903BA34FE11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1751889-BD49-4031-8BAC-903BA34FE11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1751889-BD49-4031-8BAC-903BA34FE11E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
