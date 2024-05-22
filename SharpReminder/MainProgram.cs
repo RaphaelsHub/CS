@@ -32,7 +32,6 @@ namespace SharpReminder
             String.Concatenation();
             String.ConsoleView();
             OopWork.EnumWork();
-            OopWork.Serialization();
             OopWork.HalfAbstract();
             OopWork.CheckMyInt();
             OopWork.WorkingWithFiles();
@@ -275,39 +274,7 @@ public static class OopWork
         z.AddRange(list);
     }
     
-    //перевод данных из структур в последовательность битов и это можно сделать с помощью текстового файла, xml, json file
-    public static void Serialization()
-    {
-        string path = @"D:\Repositories\C_Sharp_Reminder\SharpReminder\XML_Files\Alex.xml";
 
-        Worker a = new Worker()
-        {
-            Name = "Alex",
-            Surname = "Pekel",
-            MidName = "Alexei",
-            PostJob = "GameDev",
-            Corpotation = "MigNight",
-            Salary = 15000
-        };
-
-        XmlSerializer xmlSerializer = new XmlSerializer(typeof(Worker));
-        Stream fStream = new FileStream(path, FileMode.Create, FileAccess.Write);
-        xmlSerializer.Serialize(fStream, a);
-        fStream.Close();
-    }
-    
-    //процесс перевода данных то есть последовательности битов в описаваемые нами структры
-    private static void DeSerialization()
-    {
-        string path = @"D:\Repositories\C_Sharp_Reminder\SharpReminder\XML_Files\Alex.xml";
-        
-        Worker b = new Worker();
-        
-        XmlSerializer xmlSerializer = new XmlSerializer(typeof(Worker));
-        Stream fStream = new FileStream(path, FileMode.Open, FileAccess.Read);
-        b = (Worker)((xmlSerializer.Deserialize(fStream)) ?? throw new InvalidOperationException());
-        fStream.Close();
-    }
     public static void WorkingWithFiles()
     {
         //1 вариант
@@ -597,15 +564,7 @@ namespace OOP
             Console.WriteLine("TicTIc");
         }
     }
-    public struct Worker
-    {
-        public string Name;
-        public string Surname;
-        public string MidName;
-        public string PostJob;
-        public string Corpotation;
-        public int Salary;
-    }
+
     public class DrawException : Exception
     {
         public DrawException(string a) : base(a) //вызывыет конструктор   
