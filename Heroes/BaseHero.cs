@@ -130,20 +130,20 @@ public abstract class BaseHero: IHitUltra
 
 
     // Получение урона, атака, лечение  - реалиазация какой угодно логики
-    protected void Treatment(uint hp)
+    public virtual void Treatment(uint hp)
     {
         CurrentHealth = Math.Min(CurrentHealth + hp, MaxHealth);
         Console.WriteLine($"Healing {hp} HP. Current health: {CurrentHealth}");
     }
 
-    public void GetDamage(uint damagePoints)
+    public virtual void GetDamage(uint damagePoints)
     {
         uint actualDamage = Math.Min(damagePoints, CurrentHealth);
         CurrentHealth -= actualDamage;
         Console.WriteLine($"Taking {actualDamage} damage. Current health: {CurrentHealth}");
     }
 
-    protected void Attack()
+    public virtual void Attack()
     {
         Console.WriteLine("AttackLogic");
 
@@ -158,16 +158,16 @@ public abstract class BaseHero: IHitUltra
     }
 
 
-    private void Die()
+    public virtual void Die()
     {
         //some logic
         if (CheckOnLevelUp != null)
             CheckOnLevelUp -= LevelUp;
     }
 
-    public void HitWithUltraDamage(BaseHero a)
+    public virtual void HitWithUltraDamage(BaseHero a)
     {
-        if(this!=a)
+        if (this != a)
             a.GetDamage(20);
     }
 }
@@ -179,8 +179,9 @@ public class Archer : BaseHero,IHitBang
     {
         Attack();
     }
-    
-    public new void Treatment(uint hp)
+
+
+    public override void Treatment(uint hp)
     {
         base.Treatment(hp);
         Console.WriteLine("NewTreatmentLogic");
