@@ -1,6 +1,15 @@
 namespace Heroes;
 
-public class BaseHero
+public interface IHitUltra
+{
+    public void HitWithUltraDamage(BaseHero a);
+}
+
+public interface IHitBang
+{
+    public void HitWithBomba(BaseHero a);
+}
+public abstract class BaseHero: IHitUltra
 {
     private static Random _random;
     public static uint Index = 1;
@@ -53,11 +62,14 @@ public class BaseHero
         _random = new Random();
     }
 
-    public BaseHero()
+    protected BaseHero()
     {
     }
 
 
+    public abstract void CallWarior();
+
+    
     //Метод установление ловкости, скорости, и метод с нереализованной логикой поднятия на новый уровень
     private float GetAgilityParam()
     {
@@ -118,7 +130,7 @@ public class BaseHero
 
 
     // Получение урона, атака, лечение  - реалиазация какой угодно логики
-    public void Treatment(uint hp)
+    protected void Treatment(uint hp)
     {
         CurrentHealth = Math.Min(CurrentHealth + hp, MaxHealth);
         Console.WriteLine($"Healing {hp} HP. Current health: {CurrentHealth}");
@@ -131,7 +143,7 @@ public class BaseHero
         Console.WriteLine($"Taking {actualDamage} damage. Current health: {CurrentHealth}");
     }
 
-    public void Attack()
+    protected void Attack()
     {
         Console.WriteLine("AttackLogic");
 
@@ -145,24 +157,44 @@ public class BaseHero
             CheckOnLevelUp -= LevelUp;
     }
 
+
     private void Die()
     {
+        //some logic
         if (CheckOnLevelUp != null)
             CheckOnLevelUp -= LevelUp;
     }
+
+    public void HitWithUltraDamage(BaseHero a)
+    {
+        if(this!=a)
+            a.GetDamage(20);
+    }
 }
 
-public class Archer : BaseHero
+public class Archer : BaseHero,IHitBang
 {
     // прежде временно можно считать данные откуда-то и прогрузить именно те уровни которые нужны нам
     public Archer() : base(HeroStateLoad.LoadHeroStats(nameof(Archer), 1))
     {
         Attack();
     }
-
+    
     public new void Treatment(uint hp)
     {
         base.Treatment(hp);
         Console.WriteLine("NewTreatmentLogic");
+    }
+
+    public override void CallWarior()
+    {
+        // вызов какого-то списка других кричалок
+        Console.WriteLine("HA-HA, I am Elif");
+    }
+
+    public void HitWithBomba(BaseHero a)
+    {
+        if(this!=a)
+            a.GetDamage(500);
     }
 }
