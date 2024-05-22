@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes", "Heroes\Heroes.csproj", "{4AD7C09E-F7A5-4A43-803D-EC23A26C6B70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization_Deserialization", "Serialization_Deserialization\Serialization_Deserialization.csproj", "{F6E5F50F-4823-4616-AF4B-C58A71BDA1EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization_DeserializationXML", "Serialization_DeserializationXML\Serialization_DeserializationXML.csproj", "{F6E5F50F-4823-4616-AF4B-C58A71BDA1EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

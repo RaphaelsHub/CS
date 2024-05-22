@@ -12,6 +12,7 @@ namespace SharpReminder
         {
             CallSheet();
         }
+
         private static void CallSheet()
         {
             Collections.CreatingArray();
@@ -28,6 +29,7 @@ namespace SharpReminder
             VarWorking.OptionalParamet(1);
             VarWorking.CheckOnOverFlow();
             VarWorking.BoxingAndUnboxing();
+            VarWorking.Math();
             String.StringInternalMethods();
             String.Concatenation();
             String.ConsoleView();
@@ -41,6 +43,7 @@ namespace SharpReminder
         }
     }
 }
+
 public static class Collections
 {
     public static void CreatingArray(params int[] array)
@@ -49,6 +52,7 @@ public static class Collections
             Console.Write(it + " ");
         Console.WriteLine();
     }
+
     public static void CreatingArray()
     {
         int[] array = new int[] { 2, 4, 6, 8, 10 };
@@ -59,6 +63,7 @@ public static class Collections
 
         CreatingArray(1, 2, 3, 4, 5);
     }
+
     public static void CreatingDoubleArray()
     {
         int[,] doubleArray = new int[,] { { 1, 3, 5 }, { 4, 6, 8 }, { 2, 1, 0 } };
@@ -70,6 +75,7 @@ public static class Collections
             Console.WriteLine();
         }
     }
+
     public static void List()
     {
         var vector = new List<int> { 1, 5, 3, 7, 5, 8 };
@@ -78,6 +84,7 @@ public static class Collections
             Console.Write(item + " ");
         Console.WriteLine();
     }
+
     public static void StackQueue()
     {
         Stack<int> orders = new Stack<int>(10);
@@ -89,6 +96,7 @@ public static class Collections
         queue.Enqueue(1);
         queue.Dequeue();
     }
+
     public static void LinkedList()
     {
         var a = new LinkedList<int>();
@@ -113,6 +121,7 @@ public static class Collections
             currNode = currNode.Next;
         }
     }
+
     public static void Dictionary()
     {
         var dictionary = new Dictionary<int, string>
@@ -127,6 +136,7 @@ public static class Collections
         string name = dictionary[1]; //вернет Anton
         Console.WriteLine(name);
     }
+
     public static void HashSet()
     {
         var set = new HashSet<int>(new int[] { 1, 2, 2, 3, 4, 5 });
@@ -134,10 +144,11 @@ public static class Collections
         foreach (var variable in set)
             Console.WriteLine($"{variable} ");
     }
+
     public static void CheckCustomStack()
     {
         CustomStack<int> a = new CustomStack<int>();
-        
+
         for (int i = 0; i < 4; i++)
             a.Push(1);
 
@@ -148,20 +159,22 @@ public static class Collections
         }
     }
 }
+
 public static class VarWorking
 {
     public static void Vars()
     {
         Random random = new Random();
-    
+
         const int speed = 10;
-        
+
         var firstNum = random.Next(1, 6);
         var secondNum = random.Next(1, 6);
         var floatNum = random.NextDouble() * 10;
 
-        Swap(ref firstNum,ref secondNum);
+        Swap(ref firstNum, ref secondNum);
     }
+
     public static void TimeVar()
     {
         DateTime a = DateTime.Now;
@@ -171,15 +184,27 @@ public static class VarWorking
         Console.WriteLine($"End time: {b}");
 
         TimeSpan dif = b - a;
-
         Console.WriteLine($"Difference in days: {dif.Days}");
+
+        DateTime time = new DateTime(2024, 5, 24,16,13,30);
+        Console.WriteLine(time.ToShortDateString());
+        time = time.AddDays(2);
+        Console.WriteLine("Added two days: " + time.ToShortDateString());
+
+        Console.WriteLine(time.ToShortTimeString());
+
+        TimeSpan x = time - a;
+        Console.WriteLine(x.Milliseconds + " IS OUT RESULT!");
+
     }
+
     public static void BoxingAndUnboxing()
     {
         object obj = 1; // Создали объект ссылочного типа, где значение 1 будет упаковано и выделено на куче
         ref object a = ref obj; // Присвоили ссылку объекта ссылочному типу
         int y = (int)obj; // Значение было извлечено из упакованного объекта и приведено к типу int
     }
+
     public static void CheckOnOverFlow()
     {
         checked //проверка за выход за пределы, если произойдет какое-то исключение нам это выбьет
@@ -188,22 +213,36 @@ public static class VarWorking
             number--;
         }
     }
+
     public static int OptionalParamet(int i, bool b = false)
     {
         return b ? i * i : i * i * i; //Отправили опциональный параметр, можем заполнять можем нет
     }
+
     public static void Parsing()
     {
-        int firstNum = (int)Math.Round(10.5, MidpointRounding.ToZero); //10
-        int secondNum = (int)Math.Round(10.5, MidpointRounding.AwayFromZero); //11
+        int firstNum = (int)System.Math.Round(10.5, MidpointRounding.ToZero); //10
+        int secondNum = (int)System.Math.Round(10.5, MidpointRounding.AwayFromZero); //11
     }
+
     private static void Swap<T>(ref T i, ref T y)
     {
         T tmp = i;
         i = y;
         y = i;
     }
+
+    public static void Math()
+    {
+        Console.WriteLine(System.Math.Abs(-10));
+        Console.WriteLine(System.Math.Acos(0.4));
+        Console.WriteLine(System.Math.Cos(90));
+        Console.WriteLine(System.Math.Pow(2,4));
+        Console.WriteLine(System.Math.Sqrt(100));
+        Console.WriteLine(System.Math.PI * System.Math.Pow(3,2)); //pi*r^2
+    }
 }
+
 public static class String
 {
     public static void ConsoleView()
@@ -219,6 +258,7 @@ public static class String
 
         Console.WriteLine($"{sequenceOfCharacters}, nice to meet you!");
     }
+
     public static void StringInternalMethods()
     {
         var str = string.Concat("Alex ", "Pekel"); //Сделает конкатенацию
@@ -229,6 +269,7 @@ public static class String
         str = str.ToLower(); //Привидет к маленьким
         string[] strings = str.Split(';'); //Разделит на под массивы и вернет массивы
     }
+
     public static void Concatenation()
     {
         var surname = "Pekel";
@@ -240,6 +281,7 @@ public static class String
         var type4 = $"{name} {surname}";
     }
 }
+
 public static class OopWork
 {
     public static void HalfAbstract()
@@ -255,11 +297,13 @@ public static class OopWork
             vas.RotateWheels();
         }
     }
+
     public static void EnumWork()
     {
         LightControl a = new LightControl();
         a.SwitchLight(TrafficLights.Green);
-    }    
+    }
+
     public static void CheckMyInt()
     {
         var b = new Stack();
@@ -273,7 +317,7 @@ public static class OopWork
         IControl z = new Stack();
         z.AddRange(list);
     }
-    
+
 
     public static void WorkingWithFiles()
     {
@@ -298,16 +342,19 @@ public static class OopWork
             file?.Close();
         }
 
-        
+
         //2 вариант
-        string filePath = "Text.txt"; 
+        string filePath = "Text.txt";
         string[] linesToWrite = ["Строка 1", "Строка 2", "Строка 3"];
 
         using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
         {
             foreach (string line in linesToWrite)
             {
-                byte[] bytes = Encoding.UTF8.GetBytes(line + Environment.NewLine); // Кодируем строку в байты с добавлением перевода строки
+                byte[] bytes =
+                    Encoding.UTF8.GetBytes(line +
+                                           Environment
+                                               .NewLine); // Кодируем строку в байты с добавлением перевода строки
                 fs.Write(bytes, 0, bytes.Length); // Записываем байты в файл
             }
         }
@@ -319,7 +366,9 @@ public static class OopWork
             var read = fs.Read(bytes, 0, bytes.Length);
 
             string fileContent = Encoding.UTF8.GetString(bytes);
-            string[] linesRead = fileContent.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries); // Разбиваем строку на массив строк
+            string[] linesRead =
+                fileContent.Split(new[] { Environment.NewLine },
+                    StringSplitOptions.RemoveEmptyEntries); // Разбиваем строку на массив строк
 
             foreach (string line in linesRead)
             {
@@ -328,17 +377,17 @@ public static class OopWork
         }
 
         //4 вариант
-        string[] allLines = File.ReadAllLines("Text.txt");
         string allFile = File.ReadAllText("Text.txt");
+        string[] allLines = File.ReadAllLines("Text.txt");
 
         string[] initialLines = ["Строка 1", "Строка 2", "Строка 3"];
-        string[] linesToAdd = ["Строка 4", "Строка 5", "Строка 6"]; 
+        string[] linesToAdd = ["Строка 4", "Строка 5", "Строка 6"];
 
         File.WriteAllLines(filePath, initialLines);
         File.AppendAllLines(filePath, linesToAdd);
 
-        allFile = File.ReadAllText(filePath);
-        
+        allFile = File.ReadAllText(filePath); 
+
         //5 вариант
         FileStream fileStream = File.Open("Text.txt", FileMode.OpenOrCreate, FileAccess.Write);
 
@@ -361,8 +410,23 @@ public static class OopWork
         Console.WriteLine($"The file is emptys: {isEmpty}");
 
         fileStream.Close();
+        
+        //fileInfo
+        FileInfo f = new FileInfo(@"Text.txt");
+        Console.WriteLine(f.IsReadOnly);
+        Console.WriteLine(f.Attributes);
+        Console.WriteLine(f.LastWriteTimeUtc);
+        Console.WriteLine(f.LastAccessTime);
+        Console.WriteLine(f.LastWriteTime);
+        Console.WriteLine(f.Extension);
+        Console.WriteLine(f.FullName);
+        Console.WriteLine(f.Name);
+        
+        //DirectoryInfo
+        DirectoryInfo b = new DirectoryInfo(filePath);
     }
 }
+
 public static class ExceptionWork
 {
     public static void TrainingOnExcepctions()
@@ -391,6 +455,7 @@ public static class ExceptionWork
             Console.WriteLine(ex); //отработает базоыый тип, если не отработают исключения выше
         }
     }
+
     public static void FileOpenException()
     {
         FileStream? myFile = null;
@@ -408,6 +473,7 @@ public static class ExceptionWork
             myFile?.Dispose();
         }
     }
+
     public static void ExceptionRead()
     {
         if (false)
@@ -415,7 +481,6 @@ public static class ExceptionWork
         else
             throw new DrawException("X is equal 0"); //Кастомный класс под иключение
     }
-
 }
 
 namespace OOP
@@ -424,22 +489,24 @@ namespace OOP
     {
         public int Y { get; set; }
         public int X { get; set; }
-    
+
         public void Print()
         {
             Console.WriteLine(X + " " + Y);
         }
     }
+
     public class PointRef
     {
         public int Y { get; set; }
         public int X { get; set; }
-    
+
         public void Print()
         {
-            Console.WriteLine(X + " " +  Y);
+            Console.WriteLine(X + " " + Y);
         }
     }
+
     public abstract class Car
     {
         private string _numClass;
@@ -448,21 +515,24 @@ namespace OOP
         {
             _numClass = a;
         }
+
         public abstract void Move();
         public abstract void RotateWheels();
         public abstract void RotateRul();
     }
-    public class Tracks:Car
+
+    public class Tracks : Car
     {
         private readonly int _speed;
         private readonly int _acceleration;
 
-        public Tracks(int a, int b):base(nameof(Tracks))
+        public Tracks(int a, int b) : base(nameof(Tracks))
         {
             _speed = a;
             _acceleration = b;
             Console.WriteLine("Track created");
         }
+
         public override void Move()
         {
             Console.WriteLine("IsJustMooving");
@@ -478,9 +548,11 @@ namespace OOP
             Console.WriteLine("IsWorkingRuli");
         }
     }
+
     public class HalfAbstract
     {
-        public class Weapon //можно назвать это полуабстрактым классом, мы можем переопределять базовые класс, а можем этого и не делать 
+        public class
+            Weapon //можно назвать это полуабстрактым классом, мы можем переопределять базовые класс, а можем этого и не делать 
         {
             public virtual void Print()
             {
@@ -496,20 +568,24 @@ namespace OOP
             }
         }
     }
+
     public enum TrafficLights
     {
         Green,
         Yellow,
         Red
     }
+
     public class LightControl
     {
         private TrafficLights _light = TrafficLights.Red;
+
         public void SwitchLight(TrafficLights light)
         {
             this._light = light;
             ResetLight();
         }
+
         private void ResetLight(TrafficLights light = TrafficLights.Red)
         {
             Console.WriteLine(this._light);
@@ -517,31 +593,34 @@ namespace OOP
             Console.WriteLine(this._light);
             LightNext();
         }
+
         private void LightNext()
         {
-            _light= (this._light == TrafficLights.Red) ? TrafficLights.Green : (TrafficLights)(((int)_light+1) % 3); 
-    
+            _light = (this._light == TrafficLights.Red) ? TrafficLights.Green : (TrafficLights)(((int)_light + 1) % 3);
+
             if (_light != TrafficLights.Red)
             {
                 LightNext();
             }
         }
     }
-    
+
     /* Почему интерфейс, а не абстракт класс?
      * Множественное насследование + контракт на реализацию - галочка в пользу интерфейса.
      * Его минус - сложность в расширении, нужно создавать статический класс
-    */
-    
+     */
+
     public interface IUse
     {
         void Add(int a);
     }
-    public interface IControl: IUse
+
+    public interface IControl : IUse
     {
         new void Add(int a);
         void Add2();
     }
+
     public static class Control
     {
         public static void AddRange(this IControl collection, IEnumerable<int> numbers)
@@ -552,6 +631,7 @@ namespace OOP
             }
         }
     }
+
     public class Stack : IControl
     {
         public void Add(int a)

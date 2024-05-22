@@ -1,16 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Country Country="Moldova">
-  
   <City City="Chisinau">
-    <Address>Pushkin</Address>
+    <Adress>Pushkin</Adress>
   </City>
-  
   <City City="Chisinau">
-    <Address>Pushkin</Address>
+    <Adress>Pushkin</Adress>
   </City>
-  
   <City City="Chisinau">
-    <Address>Pushkin</Address>
+    <Adress>Pushkin</Adress>
   </City>
-  
 </Country>

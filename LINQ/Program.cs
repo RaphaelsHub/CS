@@ -166,9 +166,9 @@ class Program
                 .OrderByDescending(data => data.Name)
                 .ThenBy(data => data.Id)
                 .Take(10)
-                .ToList();             
+                .ToList();
 
-            foreach (var obj in varsa)//пробегается по финальной колеции
+            foreach (var obj in varsa) //пробегается по финальной колеции
             {
                 Console.WriteLine(obj);
             }
@@ -178,10 +178,14 @@ class Program
                 Console.WriteLine($"The lowest name is in top 10: {varsa.Min(x => x.Name)}");
                 Console.WriteLine($"The highest name is in top 10: {varsa.Max(x => x.Name)}");
                 Console.WriteLine($"The average ID in top 10: {varsa.Average(x => x.Id)}");
-                Console.WriteLine($"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.First(x=>x.Name=="Isabel")}");
-                Console.WriteLine($"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.Last(x=>x.Name=="Isabel")}");
-                Console.WriteLine($"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.FirstOrDefault(x=>x.Name=="IIsabel")}");
-                Console.WriteLine($"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.LastOrDefault(x=>x.Name=="IIsabel")}");
+                Console.WriteLine(
+                    $"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.First(x => x.Name == "Isabel")}");
+                Console.WriteLine(
+                    $"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.Last(x => x.Name == "Isabel")}");
+                Console.WriteLine(
+                    $"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.FirstOrDefault(x => x.Name == "IIsabel")}");
+                Console.WriteLine(
+                    $"The average ID in top 10: {varsa.Average(x => x.Id)} {varsa.LastOrDefault(x => x.Name == "IIsabel")}");
             }
             else
             {

@@ -17,7 +17,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string path = @"D:\Repositories\C_Sharp_Reminder\Serialization_Deserialization\AlexData.xml";
+        string path = @"D:\Repositories\C_Sharp_Reminder\Serialization_DeserializationXML\AlexData.xml";
 
         Worker a = new Worker()
         {
@@ -33,7 +33,7 @@ class Program
 
 
         //Работа с листами
-        string pathForListOfWorkers = @"D:\Repositories\C_Sharp_Reminder\Serialization_Deserialization\ListData.xml";
+        string pathForListOfWorkers = @"D:\Repositories\C_Sharp_Reminder\Serialization_DeserializationXML\ListData.xml";
 
         List<Worker> list = new List<Worker>() { a, a, a, a, a };
 
@@ -52,7 +52,7 @@ class Program
 
     private static void CreatCustom()
     {
-        string path = @"D:\Repositories\C_Sharp_Reminder\Serialization_Deserialization\Custom.xml";
+        string path = @"D:\Repositories\C_Sharp_Reminder\Serialization_DeserializationXML\Custom.xml";
 
         XElement a = new XElement("Country");
         XElement b = new XElement("City");
