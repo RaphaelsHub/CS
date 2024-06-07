@@ -1,16 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFolder1", "SolutionFolder1", "{1FFDE876-EB2A-4E8E-A31D-B8726EB93E39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpReminder", "SharpReminder\SharpReminder.csproj", "{E5336FB8-F91A-4E9B-9432-D75D8656E62B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpReminder", "SharpReminder\SharpReminder.csproj", "{E5336FB8-F91A-4E9B-9432-D75D8656E62B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate", "Delegate\Delegate.csproj", "{E7E751C4-3509-4A22-AE87-53B28D944440}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate", "Delegate\Delegate.csproj", "{E7E751C4-3509-4A22-AE87-53B28D944440}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{E1751889-BD49-4031-8BAC-903BA34FE11E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQ", "LINQ\LINQ.csproj", "{E1751889-BD49-4031-8BAC-903BA34FE11E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heroes", "Heroes\Heroes.csproj", "{4AD7C09E-F7A5-4A43-803D-EC23A26C6B70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heroes", "Heroes\Heroes.csproj", "{4AD7C09E-F7A5-4A43-803D-EC23A26C6B70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization_DeserializationXML", "Serialization_DeserializationXML\Serialization_DeserializationXML.csproj", "{F6E5F50F-4823-4616-AF4B-C58A71BDA1EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialization_DeserializationXML", "Serialization_DeserializationXML\Serialization_DeserializationXML.csproj", "{F6E5F50F-4823-4616-AF4B-C58A71BDA1EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Entity", "DB_Entity\DB_Entity.csproj", "{1F321F3D-917D-4BD3-B235-25A83DB09575}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,7 +43,15 @@ Global
 		{F6E5F50F-4823-4616-AF4B-C58A71BDA1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6E5F50F-4823-4616-AF4B-C58A71BDA1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6E5F50F-4823-4616-AF4B-C58A71BDA1EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F321F3D-917D-4BD3-B235-25A83DB09575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F321F3D-917D-4BD3-B235-25A83DB09575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F321F3D-917D-4BD3-B235-25A83DB09575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F321F3D-917D-4BD3-B235-25A83DB09575}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1F1299B-1333-45C8-994E-D19B245E5D80}
 	EndGlobalSection
 EndGlobal

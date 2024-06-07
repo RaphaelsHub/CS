@@ -13,6 +13,7 @@ static class Program
             if (team[i] is IHitBang archer)
             {
                 archer.HitWithBomba(team[i]);
+                
             }
         }
     }
